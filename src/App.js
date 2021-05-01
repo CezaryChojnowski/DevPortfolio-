@@ -33,10 +33,16 @@ import {
   ImLinkedin
 } from "react-icons/im"
 
+import { message } from './message.js';
+
 function App() {
   const [hiddenMain, setHiddenMain] = React.useState(true);
   const [seconds, setSeconds] = React.useState(0);
+  const [language, setLanguage] = React.useState("PL");
 
+  function changeLanguage() {
+    language == "PL" ? setLanguage("EN") : setLanguage("PL")
+  }
 
   useEffect(() => {
     if (hiddenMain) {
@@ -46,6 +52,7 @@ function App() {
       }
     }
   })
+
 
   if (hiddenMain) {
     return (
@@ -59,6 +66,11 @@ function App() {
   return (
     <HashRouter>
       <div className="header">
+        <button className="language" onClick={changeLanguage}>
+          {language == "EN" ? <img src="/PL.png" alt="Home" width="30" height="20" /> : <img src="/EN.svg" alt="Home" width="30" height="20" />}
+        </button>
+      </div>
+      <div className="navbar">
         <ul>
           <li className="logo">
             <NavLink exact activeClassName="activeLogo" to="/">
@@ -68,68 +80,68 @@ function App() {
           <li>
             <NavLink activeClassName="active" to="/experience">
               <HiTrendingUp size="25px" color="#64ffda" />
-              <span> Experience</span>
+              <span> {message[language].experience}</span>
             </NavLink>
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/projects">
               <HiCollection size="20px" color="#3f51b5" />
-              <span> Projects</span>
+              <span> {message[language].projects}</span>
             </NavLink>
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/skills">
               <HiChartBar size="20px" color="#9c27b0" />
-              <span> Skills</span>
+              <span> {message[language].skills}</span>
             </NavLink>
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/qualifications">
               <HiFolder size="20px" />
-              <span> Qualifications and courses</span>
+              <span> {message[language].qualifications}</span>
             </NavLink>
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/education">
               <HiAcademicCap size="20px" color="#ff9800" />
-              <span> Education</span>
+              <span> {message[language].education}</span>
             </NavLink>
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/cv">
               <HiDocumentText size="20px" color="#F44336 " />
-              <span> CV</span>
+              <span> {message[language].cv}</span>
             </NavLink>
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/hobbies">
               <HiOutlinePuzzle size="20px" />
-              <span> Hobbies</span>
+              <span> {message[language].hobbies}</span>
             </NavLink>
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/contact">
               <HiMail size="20px" />
-              <span> Contact</span>
+              <span> {message[language].contact}</span>
             </NavLink>
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/guestbook">
               <HiBookOpen size="20px" color="#795548" />
-              <span> Guestbook</span>
+              <span> {message[language].guestbook}</span>
             </NavLink>
           </li>
           <hr></hr>
           <li>
             <a href="https://github.com/CezaryChojnowski" exact activeClassName="active" target="_blank">
-            <ImGithub size="20px" color="#fafafa " />
-              <span> Github</span>
+              <ImGithub size="20px" color="#fafafa " />
+              <span> {message[language].github}</span>
             </a>
           </li>
           <li>
             <a href="https://www.linkedin.com/in/cezary-chojnowski-500362182/" exact activeClassName="active" target="_blank">
-            <ImLinkedin size="20px" color="#0072b1"/>
-              <span> Linkedin</span>
+              <ImLinkedin size="20px" color="#0072b1" />
+              <span> {message[language].linkedin}</span>
             </a>
           </li>
         </ul>

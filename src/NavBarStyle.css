@@ -7,8 +7,19 @@
 
 }
 
+.header{
+    width: 100%;
+    position: fixed;
+}
 
-.header {
+.language{
+    margin-top: 0.5%;
+    background-color: #0a192f;
+    border: none;
+    margin-left: 95%;
+}
+
+.navbar {
     width: 15%;
     float: left;
     background-color: #0a192f;
@@ -22,7 +33,7 @@ ul{
     color: #8892b0;
     margin-top: 5%;
     margin-bottom: 5%;
-    padding: 10px 20px;
+    padding: 15px 20px;
     margin-left: 0;
     margin: 0;
     padding: 0;
@@ -38,7 +49,6 @@ li{
     margin: 0;
     padding: 0;
     margin-left: 0;
-    /* padding: 10px; */
     font-weight: bold;
     text-align: left;
     width: 100%;
@@ -69,7 +79,7 @@ a{
     background-color: #0a192f;
     color: #8892b0;
     margin-left: 0;
-    padding: 15px 20px;
+    padding: 10px 20px;
     font-weight: bold;
     display: table;
     width: 100%;
