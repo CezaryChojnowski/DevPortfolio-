@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Condensed&family=Yanone+Kaffeesatz:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
+.experience{
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    height: 300px;
+    border: 6px double #9da3ab;
+    border-radius: 15px 15px 15px 15px;
+    background-color: #222f43;
+}
+
+.companyInfo{
+    margin-bottom: 10px;
+    float: left;
+    width: 40%;
+    height: 30%;
+    overflow: hidden; 
+    border-bottom: white 1px solid;
+}
+
+.companyLogo{
+    width: 45%;
+    float:left;
+    margin-bottom: 5px;
+}
+
+.company{
+    margin-top: 1%;
+    float: right;
+    text-align: center;
+    width: 50%;
+    height: 45%;
+}
+
+.location{
+    margin-top: 1%;
+    float: right;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+}
+
+.title{
+    float: left;
+    width: 30%;
+    height: 30%;
+    text-align: center;
+    border-bottom: white 1px solid;
+}
+.dates{
+    float: left;
+    width: 30%;
+    height: 30%;
+    text-align: center;
+    border-bottom: white 1px solid;
+}
+
+.responsibilities{
+    margin-left: 2%;
+    float: left;
+    width: 100%;
+    height: 50%;
+}
+
+.stack{
+    margin-left: 2%;
+    float: left;
+    width: 80%;
+    height:19%;
+}
+
+.reference{
+    float: right;
+    width: 20%;
+    height:25%;
+}
+
+
+span#company{
+    min-height: 45px;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+span#location{
+    min-height: 45px;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+span#title{
+    min-height: 80px;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+span#dates{
+    min-height: 45px;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+span#stack{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+}
+
+span#responsibilities{
+    font-family: 'Hind', sans-serif;
+    font-size: 19px;
+}
+
+
+.experience{
+    background: #111845a6;
+    box-shadow: 0 20px 50px rgb(23, 32, 90);
+    border: 2px solid #2a3cad;
+    color: white;
+    padding: 20px;
+  }
+  
+  .experience:before{
+    content: '';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background: rgba(255,255,255,0.1);
+    transition:0.5s;
+    pointer-events: none;
+  }
+
+  
+
+  

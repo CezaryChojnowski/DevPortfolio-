@@ -5,7 +5,7 @@ export let message ={
         skills:"Skills",
         qualifications:"Qualifications and courses",
         education:"Education",
-        cv:"CV",
+        cv:"Resume",
         hobbies:"Hobbies",
         contact:"Contact",
         guestbook:"Guestbook",

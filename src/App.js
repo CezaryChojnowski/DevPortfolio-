@@ -7,13 +7,11 @@ import {
 } from "react-router-dom";
 import './NavBarStyle.css';
 import Contact from "./mainPages/Contact";
-import Experience from './mainPages/Experience';
-import Hobbies from './mainPages/Hobbies';
+import Experience from './Experience/Experience';
 import Projects from './mainPages/Projects';
 import Skills from './mainPages/Skills';
 import Qualifications from './mainPages/Qualifications';
 import Guestbook from './mainPages/Guestbook';
-import Cv from './mainPages/Cv';
 import Education from './mainPages/Education';
 
 import {
@@ -33,7 +31,12 @@ import {
   ImLinkedin
 } from "react-icons/im"
 
-import { message } from './message.js';
+import { message } from './messages/navBarMessage.js';
+// import PdfCV from './Cezary_Chojnowski_CV.pdf';
+
+import {LanguageContext} from "./Contexts/LanguageContext";
+
+export const Context = React.createContext();
 
 function App() {
   const [hiddenMain, setHiddenMain] = React.useState(true);
@@ -67,7 +70,7 @@ function App() {
     <HashRouter>
       <div className="header">
         <button className="language" onClick={changeLanguage}>
-          {language == "EN" ? <img src="/PL.png" alt="Home" width="30" height="20" /> : <img src="/EN.svg" alt="Home" width="30" height="20" />}
+          {language == "EN" ? <img src="/PL.png" alt="Home" width="30" height="20" /> : <img src="/EN.png" alt="Home" width="30" height="20" />}
         </button>
       </div>
       <div className="navbar">
@@ -78,7 +81,12 @@ function App() {
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/experience">
+            <NavLink activeClassName="active" to={{
+              pathname:"/experience",
+              state : {
+                language:language
+              }
+            }}>
               <HiTrendingUp size="25px" color="#64ffda" />
               <span> {message[language].experience}</span>
             </NavLink>
@@ -108,16 +116,10 @@ function App() {
             </NavLink>
           </li>
           <li>
-            <NavLink exact activeClassName="active" to="/cv">
+            {/* <a href={PdfCV} exact activeClassName="active" target="_blank"> */}
               <HiDocumentText size="20px" color="#F44336 " />
               <span> {message[language].cv}</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink exact activeClassName="active" to="/hobbies">
-              <HiOutlinePuzzle size="20px" />
-              <span> {message[language].hobbies}</span>
-            </NavLink>
+            {/* </a> */}
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/contact">
@@ -148,13 +150,11 @@ function App() {
       </div>
       <div className="content">
         <Route path="/contact" component={Contact} />
-        <Route path="/experience" component={Experience} />
-        <Route path="/hobbies" component={Hobbies} />
+        <LanguageContext.Provider value={{language, setLanguage}}><Route path="/experience" component={Experience}/></LanguageContext.Provider>
         <Route path="/projects" component={Projects} />
         <Route path="/qualifications" component={Qualifications} />
         <Route path="/skills" component={Skills} />
         <Route path="/education" component={Education} />
-        <Route path="/cv" component={Cv} />
         <Route path="/guestbook" component={Guestbook} />
       </div>
     </HashRouter>
