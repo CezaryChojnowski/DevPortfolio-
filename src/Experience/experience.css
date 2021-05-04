@@ -67,14 +67,14 @@
 .stack{
     margin-left: 2%;
     float: left;
-    width: 80%;
+    width: 70%;
     height:19%;
 }
 
 .reference{
     float: right;
     width: 20%;
-    height:25%;
+    height:20%;
 }
 
 
@@ -85,6 +85,14 @@ span#company{
     text-align: center;
     font-size: 30px;
     font-family: 'Roboto Condensed', sans-serif;
+}
+
+span#referenceButton{
+    min-height: 60px;
+    margin-left: 10%;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
 }
 
 span#location{
@@ -123,6 +131,7 @@ span#responsibilities{
     font-family: 'Hind', sans-serif;
     font-size: 19px;
 }
+
 
 
 .experience{

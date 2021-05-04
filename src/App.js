@@ -33,6 +33,7 @@ import {
 
 import { message } from './messages/navBarMessage.js';
 // import PdfCV from './Cezary_Chojnowski_CV.pdf';
+import PdfCV from './randomPDF_CV.pdf';
 
 import {LanguageContext} from "./Contexts/LanguageContext";
 
@@ -42,6 +43,7 @@ function App() {
   const [hiddenMain, setHiddenMain] = React.useState(true);
   const [seconds, setSeconds] = React.useState(0);
   const [language, setLanguage] = React.useState("PL");
+  const value = {language, setLanguage};
 
   function changeLanguage() {
     language == "PL" ? setLanguage("EN") : setLanguage("PL")
@@ -116,10 +118,10 @@ function App() {
             </NavLink>
           </li>
           <li>
-            {/* <a href={PdfCV} exact activeClassName="active" target="_blank"> */}
+            <a href={PdfCV} exact activeClassName="active" target="_blank">
               <HiDocumentText size="20px" color="#F44336 " />
               <span> {message[language].cv}</span>
-            {/* </a> */}
+            </a>
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/contact">

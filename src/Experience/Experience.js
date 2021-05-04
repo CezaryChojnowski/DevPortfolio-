@@ -1,11 +1,84 @@
 import React, { useContext } from "react";
 import './experience.css';
 import {message} from '../messages/experienceMessage.js'
+import {exadelReferenceMessages} from '../messages/exadelReference.js'
 import { LanguageContext } from '../Contexts/LanguageContext'
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
+import { withStyles } from '@material-ui/core/styles';
+import Dialog from '@material-ui/core/Dialog';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import Typography from '@material-ui/core/Typography'
+import PdfCV from '../randomPDF_Reference.pdf';
+
+
+const styles = (theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
+  },
+  closeButton: {
+    position: 'absolute',
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
+  },
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+  const { children, classes, onClose, ...other } = props;
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h6">{children}</Typography>
+      {onClose ? (
+        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
+
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiDialogContent);
+
+const DialogActions = withStyles((theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(1),
+  },
+}))(MuiDialogActions);
 
 function Experience() {
-    const {language} = useContext(LanguageContext)
+    const {language, setLanguage} = useContext(LanguageContext)
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+    const handleCloseDialog = () => {
+      setOpen(false);
+    };
 
     return (
       <div classname="experienceContent">
@@ -35,7 +108,36 @@ function Experience() {
           <span id="stack">{message.staticExadel.technologyStack}</span>
         </div>
         <div className="reference">
-        <p></p>
+          <span id="referenceButton">
+        <Button onClick={handleClick} style={{ backgroundColor: '#111845a6', color: 'white', border:'1px solid white'}}>
+        {exadelReferenceMessages[language].reference}
+      </Button></span>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+      <MenuItem onClick={handleClickOpen}>{exadelReferenceMessages[language].digitalVersion}</MenuItem>
+      <Dialog onClose={() => {handleCloseDialog(); handleClose()}} aria-labelledby="customized-dialog-title" open={open}>
+        <DialogTitle id="customized-dialog-title" onClose={() => {handleCloseDialog(); handleClose()}}>
+        {exadelReferenceMessages[language].person} - {exadelReferenceMessages[language].titlePerson}
+        </DialogTitle>
+        <DialogContent dividers>
+          <Typography gutterBottom>
+          {exadelReferenceMessages[language].referenceContent} {exadelReferenceMessages[language].referenceContent} {exadelReferenceMessages[language].referenceContent}
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={() => language == "PL" ? setLanguage("EN") : setLanguage("PL")} color="primary">
+          {language == "EN" ? <img src="/PL.png" alt="Home" width="30" height="20" /> : <img src="/EN.png" alt="Home" width="30" height="20" />}
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <MenuItem component='a' href={PdfCV} target="_blank">{exadelReferenceMessages[language].originalDocument}</MenuItem>
+
+      </Menu>
         </div>
       </div>
 
@@ -62,12 +164,12 @@ function Experience() {
         <div className="responsibilities">
           <span id="responsibilities">{message[language].responsibilitiesNordcom}</span>
         </div>
-        <div className="stack">
+        {/* <div className="stack">
           <span id="stack"></span>
         </div>
         <div className="reference">
         <p></p>
-        </div>
+        </div> */}
       </div>
 
       </div>
