@@ -1,0 +1,19 @@
+.projects{
+    width: 95%;
+    height: 900px;
+    margin-top:15%;
+}
+
+.horizontal{
+    margin-top:0
+}
+
+.left{
+    width: 45%;
+    float:left;
+}
+
+.right{
+    width: 45%;
+    float:right;
+}

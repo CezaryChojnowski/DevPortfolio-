@@ -8,7 +8,7 @@ import {
 import './NavBarStyle.css';
 import Contact from "./mainPages/Contact";
 import Experience from './Experience/Experience';
-import Projects from './mainPages/Projects';
+import Projects from './Projects/Projects';
 import Skills from './mainPages/Skills';
 import Qualifications from './mainPages/Qualifications';
 import Guestbook from './mainPages/Guestbook';
@@ -23,7 +23,6 @@ import {
   HiDocumentText,
   HiMail,
   HiFolder,
-  HiOutlinePuzzle
 } from "react-icons/hi";
 
 import {
@@ -153,7 +152,7 @@ function App() {
       <div className="content">
         <Route path="/contact" component={Contact} />
         <LanguageContext.Provider value={{language, setLanguage}}><Route path="/experience" component={Experience}/></LanguageContext.Provider>
-        <Route path="/projects" component={Projects} />
+        <LanguageContext.Provider value={{language, setLanguage}}><Route path="/projects" component={Projects} /></LanguageContext.Provider>
         <Route path="/qualifications" component={Qualifications} />
         <Route path="/skills" component={Skills} />
         <Route path="/education" component={Education} />
