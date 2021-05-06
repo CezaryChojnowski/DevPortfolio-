@@ -3,16 +3,18 @@ import './App.css';
 import {
   Route,
   NavLink,
-  HashRouter
+  HashRouter,
+  Redirect
 } from "react-router-dom";
 import './NavBarStyle.css';
-import Contact from "./mainPages/Contact";
+import Contact from "./Contact/Contact";
 import Experience from './Experience/Experience';
 import Projects from './Projects/Projects';
 import Skills from './Skill/Skills';
-import Qualifications from './mainPages/Qualifications';
-import Guestbook from './mainPages/Guestbook';
-import Education from './mainPages/Education';
+import Qualifications from './Qalifications/Qualifications';
+import Guestbook from './Guestbook/Guestbook';
+import Education from './Education/Education';
+import About from './About/About';
 
 import {
   HiTrendingUp,
@@ -34,7 +36,7 @@ import { message } from './messages/navBarMessage.js';
 // import PdfCV from './Cezary_Chojnowski_CV.pdf';
 import PdfCV from './randomPDF_CV.pdf';
 
-import {LanguageContext} from "./Contexts/LanguageContext";
+import { LanguageContext } from "./Contexts/LanguageContext";
 
 export const Context = React.createContext();
 
@@ -42,7 +44,7 @@ function App() {
   const [hiddenMain, setHiddenMain] = React.useState(true);
   const [seconds, setSeconds] = React.useState(0);
   const [language, setLanguage] = React.useState("PL");
-  const value = {language, setLanguage};
+  const value = { language, setLanguage };
 
   function changeLanguage() {
     language == "PL" ? setLanguage("EN") : setLanguage("PL")
@@ -77,15 +79,15 @@ function App() {
       <div className="navbar">
         <ul>
           <li className="logo">
-            <NavLink exact activeClassName="activeLogo" to="/">
+            <NavLink exact activeClassName="activeLogo" to="/about">
               <img src="/dev.png" alt="Home" width="75" height="75" />
             </NavLink>
           </li>
           <li>
             <NavLink activeClassName="active" to={{
-              pathname:"/experience",
-              state : {
-                language:language
+              pathname: "/experience",
+              state: {
+                language: language
               }
             }}>
               <HiTrendingUp size="25px" color="#64ffda" />
@@ -150,13 +152,18 @@ function App() {
         </ul>
       </div>
       <div className="content">
-        <Route path="/contact" component={Contact} />
-        <LanguageContext.Provider value={{language, setLanguage}}><Route path="/experience" component={Experience}/></LanguageContext.Provider>
-        <LanguageContext.Provider value={{language, setLanguage}}><Route path="/projects" component={Projects} /></LanguageContext.Provider>
-        <Route path="/qualifications" component={Qualifications} />
-        <LanguageContext.Provider value={{language, setLanguage}}><Route path="/skills" component={Skills} /></LanguageContext.Provider>
-        <Route path="/education" component={Education} />
-        <Route path="/guestbook" component={Guestbook} />
+        <Route exact path="/">
+          <Redirect to="/about" />
+        </Route>
+        <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/about" component={About} /></LanguageContext.Provider>
+        <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/contact" component={Contact} /></LanguageContext.Provider>
+        <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/experience" component={Experience} /></LanguageContext.Provider>
+        <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/projects" component={Projects} /></LanguageContext.Provider>
+        <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/qualifications" component={Qualifications} /></LanguageContext.Provider>
+        <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/skills" component={Skills} /></LanguageContext.Provider>
+        <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/education" component={Education} /></LanguageContext.Provider>
+        <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/guestbook" component={Guestbook} /></LanguageContext.Provider>
+        <Route component={About} />
       </div>
     </HashRouter>
   );
