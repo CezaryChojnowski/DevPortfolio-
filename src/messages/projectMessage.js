@@ -25,7 +25,9 @@ export let message = {
         },
         const: {
             techStack: "Java, Docker, Spock, JavaScript, ReactJS, Redux, Spring: Core, MVC, Data, Security, MySQL",
-            gitHubLink: "https://github.com/CezaryChojnowski/Appilcation-to-monitoring-and-analize-home-cash-flow"        }
+            gitHubLink: "https://github.com/CezaryChojnowski/Appilcation-to-monitoring-and-analize-home-cash-flow",
+            youtubeLink: "",
+        }
     },
     decisionSupportSystem: {
         PL: {
@@ -54,7 +56,7 @@ export let message = {
         const: {
             techStack: "Java, Docker, Jenkins, Spock, MySQL, Spring: Core, MVC, Data, Security",
             gitHubLink: "https://github.com/CezaryChojnowski/Control-of-health-parameters-Service",
-            youtubeLink: ""
+            youtubeLink: "",
         }
     },
     realWorld: {
@@ -66,7 +68,9 @@ export let message = {
         },
         const: {
             title: "Real world",
-            techStack: "JavaScript, ReactJS, Redux"
+            techStack: "JavaScript, ReactJS, Redux",
+            gitHubLink: "",
+            youtubeLink: ""
         }
     },
     chatBotPBWI: {
@@ -79,8 +83,23 @@ export let message = {
         const: {
             title: "ChatBot PBWI",
             techStack: "Python, PyTorch",
+            gitHubLink: "",
             youtubeLink: "https://youtu.be/9YeZjwBDyY8"
         }
     },
+    devPortfolio: {
+        PL: {
+            projectDescription: "devPortfolio devPortfolio devPortfolio devPortfolio devPortfolio"
+        },
+        EN: {
+            projectDescription: "devPortfolio devPortfolio devPortfolio devPortfolio devPortfolio"
+        },
+        const: {
+            title: "DevPortfolio",
+            techStack: "JavaScript, ReactJS",
+            gitHubLink: "https://github.com/CezaryChojnowski/DevPortfolio-",
+            youtubeLink: ""
+        }
+    }
 
 }

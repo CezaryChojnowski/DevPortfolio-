@@ -69,6 +69,17 @@ function Projects() {
             />
         </div>
       </div>
+      <div className="horizontal">
+        <div className="left">
+          <Project
+            title={message.devPortfolio.const.title}
+            techstack={message.devPortfolio.const.techStack}
+            content={message.devPortfolio[language].projectDescription} 
+            github={message.devPortfolio.const.gitHubLink}
+            youtube={message.devPortfolio.const.youtubeLink}
+            />
+        </div>
+      </div>
     </div>
   );
 }
