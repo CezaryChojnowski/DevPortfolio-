@@ -9,7 +9,7 @@ import './NavBarStyle.css';
 import Contact from "./mainPages/Contact";
 import Experience from './Experience/Experience';
 import Projects from './Projects/Projects';
-import Skills from './mainPages/Skills';
+import Skills from './Skill/Skills';
 import Qualifications from './mainPages/Qualifications';
 import Guestbook from './mainPages/Guestbook';
 import Education from './mainPages/Education';
@@ -154,7 +154,7 @@ function App() {
         <LanguageContext.Provider value={{language, setLanguage}}><Route path="/experience" component={Experience}/></LanguageContext.Provider>
         <LanguageContext.Provider value={{language, setLanguage}}><Route path="/projects" component={Projects} /></LanguageContext.Provider>
         <Route path="/qualifications" component={Qualifications} />
-        <Route path="/skills" component={Skills} />
+        <LanguageContext.Provider value={{language, setLanguage}}><Route path="/skills" component={Skills} /></LanguageContext.Provider>
         <Route path="/education" component={Education} />
         <Route path="/guestbook" component={Guestbook} />
       </div>
