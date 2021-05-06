@@ -16,15 +16,13 @@ export let message = {
         countryPoland: "Polska"
     },
     staticExadel: {
-        companyName: "Exadel",
-        companyLocation: "Białystok",
+        companyNameAndLocation: "Exadel | Białystok",
         titleExadel: "Software Engineer Intern",
         workRangeDate: "04.2019 - 08.2019",
         technologyStack: "Java, MongoDB, Git, Intelij IDEA, Thymeleaf, Spring: Core, MVC, Data, Security"
     },
     staticNordCom: {
-        companyName: "NordCom",
-        companyLocation: "Łomża",
+        companyNameAndLocation: "NordCom | Łomża",
         workRangeDate: "09.2015 - 10.2015"
     },
 }

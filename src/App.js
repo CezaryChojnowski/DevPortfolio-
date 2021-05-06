@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import './NavBarStyle.css';
 import Contact from "./Contact/Contact";
-import Experience from './Experience/Experience';
+import Experiences from './Experience/Experiences';
 import Projects from './Projects/Projects';
 import Skills from './Skill/Skills';
 import Qualifications from './Qalifications/Qualifications';
@@ -157,7 +157,7 @@ function App() {
         </Route>
         <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/about" component={About} /></LanguageContext.Provider>
         <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/contact" component={Contact} /></LanguageContext.Provider>
-        <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/experience" component={Experience} /></LanguageContext.Provider>
+        <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/experience" component={Experiences} /></LanguageContext.Provider>
         <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/projects" component={Projects} /></LanguageContext.Provider>
         <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/qualifications" component={Qualifications} /></LanguageContext.Provider>
         <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/skills" component={Skills} /></LanguageContext.Provider>
