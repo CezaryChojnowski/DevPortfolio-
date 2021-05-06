@@ -18,6 +18,7 @@
     height: 30%;
     overflow: hidden; 
     border-bottom: white 1px solid;
+    text-align: center;
 }
 
 .companyLogo{
@@ -75,6 +76,7 @@
     float: right;
     width: 20%;
     height:20%;
+    margin-right: 0;
 }
 
 

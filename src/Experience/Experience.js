@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import './experience.css';
-import {message} from '../messages/experienceMessage.js'
-import {exadelReferenceMessages} from '../messages/exadelReference.js'
+import { message } from '../messages/experienceMessage.js'
+import { exadelReferenceMessages } from '../messages/exadelReference.js'
 import { LanguageContext } from '../Contexts/LanguageContext'
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
@@ -59,43 +59,43 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 function Experience() {
-    const {language, setLanguage} = useContext(LanguageContext)
+  const { language, setLanguage } = useContext(LanguageContext)
+  const [hoverButton, setHoverButton] = useState('1px solid white');
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [open, setOpen] = React.useState(false);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-    const handleCloseDialog = () => {
-      setOpen(false);
-    };
+  const handleCloseDialog = () => {
+    setOpen(false);
+  };
 
-    return (
-      <div classname="experienceContent">
+  return (
+    <div classname="experienceContent">
       <div className="experience">
         <div className="companyInfo">
           <div className="companyLogo">
-          <img src="/exadel.png" alt="Home" width="100" height="100"/>
+            <img src="/exadel.png" alt="Home" width="100" height="100" />
           </div>
           <div className="company">
             <span id="company">{message.staticExadel.companyName}</span>
           </div>
           <div className="location">
-          <span id="location">{message.staticExadel.companyLocation}, {message[language].countryPoland}</span>
+            <span id="location">{message.staticExadel.companyLocation}, {message[language].countryPoland}</span>
           </div>
         </div>
         <div className="title">
-        <span id="title">{message.staticExadel.titleExadel}</span>
+          <span id="title">{message.staticExadel.titleExadel}</span>
         </div>
         <div className="dates">
           <span id="dates">{message.staticExadel.workRangeDate}</span><br></br>
@@ -109,35 +109,38 @@ function Experience() {
         </div>
         <div className="reference">
           <span id="referenceButton">
-        <Button onClick={handleClick} style={{ backgroundColor: '#111845a6', color: 'white', border:'1px solid white'}}>
-        {exadelReferenceMessages[language].reference}
-      </Button></span>
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-      <MenuItem onClick={handleClickOpen}>{exadelReferenceMessages[language].digitalVersion}</MenuItem>
-      <Dialog onClose={() => {handleCloseDialog(); handleClose()}} aria-labelledby="customized-dialog-title" open={open}>
-        <DialogTitle id="customized-dialog-title" onClose={() => {handleCloseDialog(); handleClose()}}>
-        {exadelReferenceMessages[language].person} - {exadelReferenceMessages[language].titlePerson}
-        </DialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-          {exadelReferenceMessages[language].referenceContent} {exadelReferenceMessages[language].referenceContent} {exadelReferenceMessages[language].referenceContent}
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={() => language == "PL" ? setLanguage("EN") : setLanguage("PL")} color="primary">
-          {language == "EN" ? <img src="/PL.png" alt="Home" width="30" height="20" /> : <img src="/EN.png" alt="Home" width="30" height="20" />}
-          </Button>
-        </DialogActions>
-      </Dialog>
-      <MenuItem component='a' href={PdfCV} target="_blank">{exadelReferenceMessages[language].originalDocument}</MenuItem>
+            <Button
+              onMouseEnter={() => setHoverButton('2px solid #2a3cad')}
+              onMouseLeave={() => setHoverButton('1px solid white')}
+              onClick={handleClick} style={{ backgroundColor: '#111845a6', color: 'white', border: hoverButton }}>
+              {exadelReferenceMessages[language].reference}
+            </Button></span>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClickOpen}>{exadelReferenceMessages[language].digitalVersion}</MenuItem>
+            <Dialog onClose={() => { handleCloseDialog(); handleClose() }} aria-labelledby="customized-dialog-title" open={open}>
+              <DialogTitle id="customized-dialog-title" onClose={() => { handleCloseDialog(); handleClose() }}>
+                {exadelReferenceMessages[language].person} - {exadelReferenceMessages[language].titlePerson}
+              </DialogTitle>
+              <DialogContent dividers>
+                <Typography gutterBottom>
+                  {exadelReferenceMessages[language].referenceContent} {exadelReferenceMessages[language].referenceContent} {exadelReferenceMessages[language].referenceContent}
+                </Typography>
+              </DialogContent>
+              <DialogActions>
+                <Button autoFocus onClick={() => language == "PL" ? setLanguage("EN") : setLanguage("PL")} color="primary">
+                  {language == "EN" ? <img src="/PL.png" alt="Home" width="30" height="20" /> : <img src="/EN.png" alt="Home" width="30" height="20" />}
+                </Button>
+              </DialogActions>
+            </Dialog>
+            <MenuItem component='a' href={PdfCV} target="_blank">{exadelReferenceMessages[language].originalDocument}</MenuItem>
 
-      </Menu>
+          </Menu>
         </div>
       </div>
 
@@ -145,17 +148,17 @@ function Experience() {
       <div className="experience">
         <div className="companyInfo">
           <div className="companyLogo">
-          <img src="/nordcom.jpg" alt="Home" width="85" height="85"/>
+            <img src="/nordcom.jpg" alt="Home" width="85" height="85" />
           </div>
           <div className="company">
             <span id="company">{message.staticNordCom.companyName}</span>
           </div>
           <div className="location">
-          <span id="location">{message.staticNordCom.companyLocation}, {message[language].countryPoland}</span>
+            <span id="location">{message.staticNordCom.companyLocation}, {message[language].countryPoland}</span>
           </div>
         </div>
         <div className="title">
-        <span id="title">{message[language].titleNordCom}</span>
+          <span id="title">{message[language].titleNordCom}</span>
         </div>
         <div className="dates">
           <span id="dates">{message.staticNordCom.workRangeDate}</span><br></br>
@@ -172,8 +175,8 @@ function Experience() {
         </div> */}
       </div>
 
-      </div>
-    );
+    </div>
+  );
 }
 
 export default Experience;

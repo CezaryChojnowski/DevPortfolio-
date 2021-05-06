@@ -163,7 +163,6 @@ function App() {
         <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/skills" component={Skills} /></LanguageContext.Provider>
         <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/education" component={Education} /></LanguageContext.Provider>
         <LanguageContext.Provider value={{ language, setLanguage }}><Route path="/guestbook" component={Guestbook} /></LanguageContext.Provider>
-        <Route component={About} />
       </div>
     </HashRouter>
   );
