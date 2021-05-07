@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import './experience.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { LanguageContext } from '../Contexts/LanguageContext'
@@ -89,7 +89,8 @@ const DialogActions = withStyles((theme) => ({
 
 function Experience(props) {
     const classes = useStyles();
-    const { language, setLanguage } = useContext(LanguageContext)
+    const { language } = useContext(LanguageContext);
+    const [languageDialog, setLanguageDialog] = useState(language);
     const [hoverButton, setHoverButton] = useState('1px solid white');
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [open, setOpen] = React.useState(false);
@@ -136,7 +137,6 @@ function Experience(props) {
                         onMouseLeave={() => setHoverButton('1px solid white')}
                         onClick={handleClick} style={{ backgroundColor: '#111845a6', color: 'white', border: hoverButton }}>
                         {exadelReferenceMessages[language].reference}
-
                     </Button>
                 }
                 <Menu
@@ -146,20 +146,20 @@ function Experience(props) {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                 >
-                    <MenuItem onClick={handleClickOpen}>{exadelReferenceMessages[language].digitalVersion}</MenuItem>
+                    <MenuItem onClick={() => { handleClickOpen(); setLanguageDialog(props.language); }}>{exadelReferenceMessages[language].digitalVersion}</MenuItem>
                     <Dialog onClose={() => { handleCloseDialog(); handleClose() }} aria-labelledby="customized-dialog-title" open={open}>
                         <DialogTitle id="customized-dialog-title" onClose={() => { handleCloseDialog(); handleClose() }}>
-                            {exadelReferenceMessages[language].person} - {exadelReferenceMessages[language].titlePerson}
+                            {exadelReferenceMessages[languageDialog].person} - {exadelReferenceMessages[languageDialog].titlePerson}
 
                         </DialogTitle>
                         <DialogContent dividers>
                             <Typography gutterBottom>
-                                {exadelReferenceMessages[language].referenceContent} {exadelReferenceMessages[language].referenceContent} {exadelReferenceMessages[language].referenceContent}
+                                {exadelReferenceMessages[languageDialog].referenceContent}
                             </Typography>
                         </DialogContent>
                         <DialogActions>
-                            <Button autoFocus onClick={() => language == "PL" ? setLanguage("EN") : setLanguage("PL")} color="primary">
-                                {language == "EN" ? <img src="/PL.png" alt="Home" width="30" height="20" /> : <img src="/EN.png" alt="Home" width="30" height="20" />}
+                            <Button autoFocus onClick={() => languageDialog == "PL" ? setLanguageDialog("EN") : setLanguageDialog("PL")} color="primary">
+                                {languageDialog == "EN" ? <img src="/PL.png" alt="Home" width="30" height="20" /> : <img src="/EN.png" alt="Home" width="30" height="20" />}
                             </Button>
                         </DialogActions>
                     </Dialog>
