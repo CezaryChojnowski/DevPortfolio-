@@ -15,7 +15,8 @@ import './projects.css';
 const useStyles = makeStyles(() => ({
     root: {
         marginLeft: 0,
-        height: 400,
+        height: 600,
+        fontSize:5,
         marginBottom: 60,
         maxHeight: 700,
         backgroundColor: '#111845a6',

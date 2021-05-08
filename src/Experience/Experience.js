@@ -13,11 +13,11 @@ import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
-import PdfCV from '../randomPDF_Reference.pdf';
 import MenuItem from '@material-ui/core/MenuItem';
 import Dialog from '@material-ui/core/Dialog';
 import Menu from '@material-ui/core/Menu';
 import { exadelReferenceMessages } from '../messages/exadelReference.js'
+import PdfExadelReferenceInPL from '../randomPDF_Reference.pdf';
 
 
 const useStyles = makeStyles(() => ({
@@ -163,7 +163,7 @@ function Experience(props) {
                             </Button>
                         </DialogActions>
                     </Dialog>
-                    <MenuItem component='a' href={PdfCV} target="_blank">{exadelReferenceMessages[language].originalDocument}</MenuItem>
+                    <MenuItem component='a' href={PdfExadelReferenceInPL} target="_blank">{exadelReferenceMessages[language].originalDocument}</MenuItem>
 
                 </Menu>
             </CardActions>

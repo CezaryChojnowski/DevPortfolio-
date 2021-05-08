@@ -2,11 +2,11 @@ export let message = {
     airlineTicketReservationSystem: {
         PL: {
             title: "System rezerwacji biletów lotniczych",
-            projectDescription: "System rezerwacji biletów lotniczychSystem rezerwacji biletów lotniczychSystem rezerwacji biletów lotniczych"
+            projectDescription: "Serwis wystawiający API dla frontendu, zawierający logikę biznesową, elementy integracji z bazą danych oraz systemy uwierzytelniania. Serwis służy do rezerwacji biletów lotniczych z podziałem na funkcjonalności administratora i użytkownika."
         },
         EN: {
             title: "Airline ticket reservation system",
-            projectDescription: "Airline ticket reservation systemAirline ticket reservation systemAirline ticket reservation system"
+            projectDescription: "Service issuing API, containing business logic, elements of integration with database and authentication systems. The service is used to book airline tickets with the division into administrator and user functionalities."
         },
         const: {
             techStack: "Java, Docker, Spock, MongoDB, Spring: Core, MVC, Data, Security",
@@ -32,11 +32,11 @@ export let message = {
     decisionSupportSystem: {
         PL: {
             title: "System wspomagania decyzji",
-            projectDescription: "System wspomagania decyzjiSystem wspomagania decyzjiSystem wspomagania decyzjiSystem wspomagania decyzjiSystem wspomagania decyzji"
+            projectDescription: "Serwis wystawiający API dla frontendu, zawierający implementację algorytmów, elementy modelowania danych w plikach csv. Aplikacja umożliwia dyskretyzację zbioru danych względem danego atrybutu na N przedziałów, normalizacja zbioru danych względem danego atrybutu,  zmiana przedziałów zbioru danych względem danego atrybut na dany przedział X-Y, klasyfikacja metodą k-nn nowego obiektu, analizy skupień tj. analizy polegającej na szukaniu i wyodrębnianiu skupień metrykami euklidesa, czebyszewa, manhattan i mahalanobisa , podział przestrzeni na obszary przynależne do poszczególnych klas oraz budowanie możliwie najkrótszych wektorów binarnych."
         },
         EN: {
             title: "Decision support system",
-            projectDescription: "Decision support systemDecision support systemDecision support systemDecision support systemDecision support system"
+            projectDescription: "Service issuing API for the frontend, the algorithm implementation, modeling datas in csv files. The application enables discretization of the data set of a given attribute into N intervals, normalization of the data set in relation to a given attribute, change of the intervals of the data set in relation to a given parameter to a given X-Y interval, classification of the k-nn method parameters of a new object, cluster analysis, i.e. analysis of the analysis operating on searching and isolating clusters metrics of by methods Euclidean, Chebyshev, Manhattan and Mahalanobis, division of space into areas belonging to particular classes and building the smallest of binary vectors."
         },
         const: {
             techStack: "Java, Spock, Spring: Core, MVC",
@@ -75,10 +75,10 @@ export let message = {
     },
     chatBotPBWI: {
         PL: {
-            projectDescription: "ChatBot PBWIChatBot PBWIChatBot PBWI"
+            projectDescription: "Chatbot odpowiadający na pytania związane z Wydziałem Informatyki Politechniki Białostockiej. Aplikacja umożliwia pisemną rozmowę z botem w różnych językach, rozmowę głosową z botem w języku polskim i angielskim oraz zapisywanie komunikatów głosowych na dysku w formacie mp3."
         },
         EN: {
-            projectDescription: "ChatBot PBWIChatBot PBWIChatBot PBWIChatBot PBWI"
+            projectDescription: "Chatbot answering questions related to the Faculty of Computer Science of the Białystok University of Technology. The application enables a written conversation with a bot in various languages, a voice conversation with a bot in Polish and English, and saving voice messages on the disk in mp3 format."
         },
         const: {
             title: "ChatBot PBWI",
